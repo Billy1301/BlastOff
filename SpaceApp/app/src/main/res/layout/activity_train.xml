@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context=".TrainActivity">
+    tools:context=".Train.TrainActivity">
 
     <TextView
         android:id="@+id/train_blurb_textView_id"
@@ -52,22 +52,5 @@
         android:layout_height="wrap_content"
         android:text="Mission Control!"
         android:layout_gravity="center"/>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_gravity="center_horizontal">
-
-        <CheckBox
-            android:id="@+id/train_checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Astronaut Training Complete!" />
-    </LinearLayout>
 
 </LinearLayout>
