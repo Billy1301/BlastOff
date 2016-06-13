@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.billy.spaceapp.MainActivity"
+    android:background="@drawable/mainhelmet"
+    android:id="@+id/frame_layout_main">
+
+    <TextView
+        android:id="@+id/main_title_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome Astronaut!"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        android:gravity="center_horizontal"
+        android:layout_margin="4dp"/>
+
+    <Button
+        android:id="@+id/main_launch_button_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Launch!"
+        android:layout_gravity="center_horizontal|bottom" />
+
+    <ImageView
+        android:id="@+id/user_image_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|clip_horizontal" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Click on the astronaut to add your picture!"
+        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal"/>
+
+</android.support.design.widget.CoordinatorLayout>
