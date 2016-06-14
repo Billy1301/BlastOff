@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
+import com.example.billy.spaceapp.Communicate.CommunicateActivity;
 import com.example.billy.spaceapp.Learn.Fragment.PlanetFragment;
 
 public class IncentiveActivity extends AppCompatActivity {

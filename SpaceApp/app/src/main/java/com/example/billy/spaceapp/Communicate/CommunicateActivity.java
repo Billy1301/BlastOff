@@ -1,4 +1,4 @@
-package com.example.billy.spaceapp;
+package com.example.billy.spaceapp.Communicate;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.billy.spaceapp.R;
 
 public class CommunicateActivity extends AppCompatActivity {
 
