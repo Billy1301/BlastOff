@@ -31,7 +31,7 @@ public class TrainTaskActivity extends AppCompatActivity {
         setContentView(R.layout.activity_traintaskactivity);
 
         initializeViews();
-        setToolbar();
+        //setToolbar();
         getIntents();
         setTextViews();
     }

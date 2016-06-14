@@ -14,7 +14,8 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/traintask_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></android.support.v7.widget.Toolbar>
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"></android.support.v7.widget.Toolbar>
 
         <TextView
             android:id="@+id/trainTask_title_textView_id"
@@ -36,19 +37,20 @@
             android:layout_height="wrap_content"
             android:text="@string/supplies_needed"
             android:textSize="18sp"
-            android:layout_marginBottom="5dp"/>
+            android:layout_margin="5dp"/>
 
         <TextView
             android:id="@+id/traintask_supplies_textview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"/>
 
         <TextView
             android:id="@+id/trainTask_skills"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Skills"
-            android:layout_marginBottom="5dp"
+            android:layout_margin="5dp"
             android:textSize="18dp"/>
 
         <TextView
@@ -56,12 +58,13 @@
             android:layout_height="wrap_content"
             android:text="@string/instructions"
             android:textSize="18sp"
-            android:layout_marginBottom="5dp"/>
+            android:layout_margin="5dp"/>
 
         <TextView
             android:id="@+id/traintask_instruction_textview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"/>
 
         <WebView
             android:id="@+id/traintask_webview"
