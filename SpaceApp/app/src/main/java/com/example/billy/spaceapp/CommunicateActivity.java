@@ -1,13 +1,11 @@
 package com.example.billy.spaceapp;
 
-import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -57,19 +55,12 @@ public class CommunicateActivity extends AppCompatActivity {
     String[] russianStrings;
     //endregion string array
 
-    SharedPreferences sharedPreferences;
-    public static final String COMMUNICATE_BOOLEAN_CODE = "BOOLEAN CODE Communicate";
-    boolean isChecked = false;
-    CheckBox checkBox;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_communicate);
 
         setViews();
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        setChecked();
         setImageArrays();
         setPhraseArrays();
         setOnClickListerners(english, englishStrings, englishpics);
@@ -87,8 +78,8 @@ public class CommunicateActivity extends AppCompatActivity {
         country = (TextView) findViewById(R.id.communicate_text_country);
         goodbye = (TextView) findViewById(R.id.communicate_text_goodbye);
         title = (TextView) findViewById(R.id.communicate_title);
-//        Typeface typeface = Typeface.createFromAsset(getAssets(), "scribble_box_font.ttf");
-//        title.setTypeface(typeface);
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "scribble_box_font.ttf");
+        title.setTypeface(typeface);
         image1 = (ImageView) findViewById(R.id.flag_1);
         image2 = (ImageView) findViewById(R.id.flag_2);
         image3 = (ImageView) findViewById(R.id.flag_3);
@@ -100,7 +91,6 @@ public class CommunicateActivity extends AppCompatActivity {
         german = (Button) findViewById(R.id.german_button);
         japanese = (Button) findViewById(R.id.japanese_button);
         russian = (Button) findViewById(R.id.russian_button);
-        checkBox = (CheckBox) findViewById(R.id.checkbox_communicate);
     }
 
     private void setOnClickListerners(Button button, final String[] phrases, final int[] image) {
@@ -213,29 +203,5 @@ public class CommunicateActivity extends AppCompatActivity {
         russianpics[2] = R.drawable.russia;
         russianpics[3] = 0;
         russianpics[4] = 0;
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean(COMMUNICATE_BOOLEAN_CODE, isChecked);
-        editor.commit();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        isChecked = sharedPreferences.getBoolean(COMMUNICATE_BOOLEAN_CODE, isChecked);
-        checkBox.setChecked(isChecked);
-    }
-
-    private void setChecked() {
-        boolean checked = (checkBox.isChecked());
-        if (checked) {
-            isChecked = true;
-        } else {
-            isChecked = false;
-        }
     }
 }

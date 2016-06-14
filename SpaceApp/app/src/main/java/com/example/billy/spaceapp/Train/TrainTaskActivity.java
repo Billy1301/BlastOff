@@ -1,5 +1,6 @@
 package com.example.billy.spaceapp.Train;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -83,7 +84,7 @@ public class TrainTaskActivity extends AppCompatActivity {
         skillsTextView.setText(skills);
         instructionsTextView.setText(instructions);
         suppliesTextView.setText(supplies);
-//        Typeface typeface = Typeface.createFromAsset(getAssets(), "scribble_box_font.ttf");
-//        titleTextView.setTypeface(typeface);
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "scribble_box_font.ttf");
+        titleTextView.setTypeface(typeface);
     }
 }
