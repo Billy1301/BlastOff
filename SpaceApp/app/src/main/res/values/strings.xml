@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Blast Off!</string>
-    <string name="languages_intro">Many countries are represented in the International Space Station. Click the buttons to learn new phrases you will use when you go up there!</string>
+    <string name="languages_intro">Many countries are represented in the International Space Station. Swipe to learn new phrases you will use when you go up there!</string>
     <string name="hello">Hello</string>
     <string name="my_name_is">My name is</string>
     <string name="i_am_an_astronaut">I am an astronaut</string>
     <string name="country_are_you_from">What country are you from?</string>
     <string name="goodbye">Goodbye</string>
-    <string name="english">english</string>
+    <string name="english">English</string>
     <string name="french">French</string>
     <string name="spanish">Spanish</string>
     <string name="japanese">Japanese</string>
