@@ -68,49 +68,4 @@ public class CommunicateActivity extends AppCompatActivity {
             }
         });
     }
-
-    private void setPhraseArrays() {
-//        englishStrings = new String[5];
-//        englishStrings[0] = getString(R.string.hello);
-//        englishStrings[1] = getString(R.string.my_name_is);
-//        englishStrings[2] = getString(R.string.i_am_an_astronaut);
-//        englishStrings[3] = getString(R.string.country_are_you_from);
-//        englishStrings[4] = getString(R.string.goodbye);
-//
-//        frenchStrings = new String[5];
-//        frenchStrings[0] = "Bonjour";
-//        frenchStrings[1] = "Mon nom est";
-//        frenchStrings[2] = "Je suis un astronaute";
-//        frenchStrings[3] = "De quel pays êtes vous?";
-//        frenchStrings[4] = "Au revoir";
-//
-//        spanishStrings = new String[5];
-//        spanishStrings[0] = "Hola";
-//        spanishStrings[1] = "Me llamo";
-//        spanishStrings[2] = "Soy un astronauta";
-//        spanishStrings[3] = "De qué país eres?";
-//        spanishStrings[4] = "Adiós";
-//
-//        germanStrings = new String[5];
-//        germanStrings[0] = "Hallo";
-//        germanStrings[1] = "Ich heiße";
-//        germanStrings[2] = "Ich bin ein Astronaut";
-//        germanStrings[3] = "Aus welchem Land kommst du?";
-//        germanStrings[4] = "Auf Wiedersehen";
-//
-//        japaneseStrings = new String[5];
-//        japaneseStrings[0] = "こんにちは (Kon'nichiwa)";
-//        japaneseStrings[1] = "私の名前は (Watashinonamaeha)";
-//        japaneseStrings[2] = "私はastonautです (Watashi wa astonautdesu)";
-//        japaneseStrings[3] = "あなたはどこの国からのものである？(Anata wa doko no kuni kara no monodearu?)";
-//        japaneseStrings[4] = "さようなら (Sayōnara)";
-//
-//        russianStrings = new String[5];
-//        russianStrings[0] = "Здравствуйте (Zdravstvuyte)";
-//        russianStrings[1] = "Меня зовут (Menya zovut)";
-//        russianStrings[2] = "Я космонавтом (YA kosmonavtom)";
-//        russianStrings[3] = "Из какой ты страны? (Iz kakoy ty strany?)";
-//        russianStrings[4] = "Прощай (Proshchay)";
-    }
-
 }

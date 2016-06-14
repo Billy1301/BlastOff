@@ -6,7 +6,6 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
-import com.example.billy.spaceapp.Communicate.CommunicateActivity;
 import com.example.billy.spaceapp.Learn.Fragment.PlanetFragment;
 
 public class IncentiveActivity extends AppCompatActivity {
@@ -49,7 +48,6 @@ public class IncentiveActivity extends AppCompatActivity {
 
     private void getBooleans() {
         create = sharedPreferences.getBoolean(CreateActivity.CREATE_BOOLEAN_CODE, create);
-        language = sharedPreferences.getBoolean(CommunicateActivity.COMMUNICATE_BOOLEAN_CODE, language);
         learn = sharedPreferences.getBoolean(PlanetFragment.BOOLEAN_CODE, create);
     }
 
