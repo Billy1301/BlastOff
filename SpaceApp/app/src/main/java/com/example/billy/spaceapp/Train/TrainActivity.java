@@ -147,14 +147,14 @@ public class TrainActivity extends AppCompatActivity {
     }
 
     private void setSupplies() {
-        baseStationSupplies = " No supplies needed";
-        crewAssemblySupplies = "Gardening Gloves\nRubber Gloves\nPuzzle";
-        missionControlSupplies = "Tennis ball\nStop Watch";
+        baseStationSupplies = "•No supplies needed";
+        crewAssemblySupplies = "•Gardening Gloves\n•Rubber Gloves\n•Puzzle";
+        missionControlSupplies = "•Tennis ball\n•Stop Watch";
     }
 
     private void setInstructions() {
-        baseStationInstructions = "Measure a course at distances of 400 m (¼ mi), 800 m (½ mi), 1200 m (¾ mi), 1600 m (1 mi)\nAt your own pace, walk, jog, or run the measured distance.\nStart by trying to complete 400 m (¼ mi).\n Slowly work to increase the distance by 400 m (¼ mi).\nOver time, your goal should be to complete 1600 m (1 mi).\nRecord observations before and after this physical experience.";
-        crewAssemblyInstructions = "Wearing various gloves, put together a puzzle or task items (such as using a screwdriver to turn a screw)";
-        missionControlInstructions = "Bounce a tennis ball off the wall and try to catch it while balancing on one foot.\nRaise one foot up behind you, level with your knee.\nCount how many seconds you can stand on one foot while throwing the tennis ball against the wall. Try not to let the ball, or your foot, touch the floor. Try to balance for at least 30 seconds without falling.\nContinue to practice this activity over time until you can keep your balance for 60 seconds without having to start over.";
+        baseStationInstructions = "•Measure a course at distances of 400 m (¼ mi), 800 m (½ mi), 1200 m (¾ mi), 1600 m (1 mi)\n•At your own pace, walk, jog, or run the measured distance.\n•Start by trying to complete 400 m (¼ mi).\n•Slowly work to increase the distance by 400 m (¼ mi).\n•Over time, your goal should be to complete 1600 m (1 mi).\n•Record observations before and after this physical experience.";
+        crewAssemblyInstructions = "•Wearing various gloves, put together a puzzle or task items (such as using a screwdriver to turn a screw)";
+        missionControlInstructions = "•Bounce a tennis ball off the wall and try to catch it while balancing on one foot.\n•Raise one foot up behind you, level with your knee.\n•Count how many seconds you can stand on one foot while throwing the tennis ball against the wall. Try not to let the ball, or your foot, touch the floor. Try to balance for at least 30 seconds without falling.\n•Continue to practice this activity over time until you can keep your balance for 60 seconds without having to start over.";
     }
 }

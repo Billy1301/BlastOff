@@ -31,9 +31,9 @@ public class TrainTaskActivity extends AppCompatActivity {
         setContentView(R.layout.activity_traintaskactivity);
 
         initializeViews();
-        //setToolbar();
         getIntents();
         setTextViews();
+        setToolbar();
     }
 
     private void initializeViews(){
@@ -48,7 +48,9 @@ public class TrainTaskActivity extends AppCompatActivity {
 
     private void setToolbar() {
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(R.string.app_name);
+        //assert getSupportActionBar() != null;
+        //toolbar.setTitle(R.string.app_name);
+        //getSupportActionBar().setTitle(R.string.app_name);
     }
 
     private void getIntents() {
