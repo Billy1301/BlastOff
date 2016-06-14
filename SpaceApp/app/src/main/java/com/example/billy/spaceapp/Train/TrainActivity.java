@@ -3,6 +3,7 @@ package com.example.billy.spaceapp.Train;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ public class TrainActivity extends AppCompatActivity {
     Button baseStationWalkBackButton;
     Button missionControlButton;
     TextView titleText;
+    Toolbar toolbar;
 
     //region lists
     private ArrayList<String> suppliesCrewAssembly;
@@ -62,6 +64,7 @@ public class TrainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_train);
 
         initiateViews();
+        setToolbar();
         setTitles();
         setSkills();
         setInstructions();
@@ -72,12 +75,18 @@ public class TrainActivity extends AppCompatActivity {
     }
 
     private void initiateViews(){
+        toolbar = (Toolbar) findViewById(R.id.train_toolbar);
         crewAssemblyButton = (Button) findViewById(R.id.train_activity1_button_id);
         baseStationWalkBackButton = (Button) findViewById(R.id.train_activity2_button_id);
         missionControlButton = (Button) findViewById(R.id.train_activity3_button_id);
         titleText = (TextView) findViewById(R.id.train_blurb_textView_id);
 //        Typeface typeface = Typeface.createFromAsset(getAssets(), "scribble_box_font.ttf");
 //        titleText.setTypeface(typeface);
+    }
+
+    private void setToolbar() {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(R.string.app_name);
     }
 
     private void setCrewAssemblyAndIntent(final String title, final String skills,

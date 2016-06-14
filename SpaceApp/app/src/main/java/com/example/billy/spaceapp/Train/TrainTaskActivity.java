@@ -2,6 +2,7 @@ package com.example.billy.spaceapp.Train;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.webkit.WebView;
 import android.widget.TextView;
 
@@ -16,6 +17,8 @@ public class TrainTaskActivity extends AppCompatActivity {
 
     WebView webView;
 
+    Toolbar toolbar;
+
     String title;
     String skills;
     String instructions;
@@ -28,17 +31,24 @@ public class TrainTaskActivity extends AppCompatActivity {
         setContentView(R.layout.activity_traintaskactivity);
 
         initializeViews();
+        setToolbar();
         getIntents();
         setTextViews();
     }
 
     private void initializeViews(){
+        toolbar = (Toolbar) findViewById(R.id.train_toolbar);
         titleTextView = (TextView) findViewById(R.id.trainTask_title_textView_id);
         skillsTextView = (TextView) findViewById(R.id.trainTask_skills);
         instructionsTextView = (TextView) findViewById(R.id.traintask_instruction_textview);
         suppliesTextView = (TextView) findViewById(R.id.traintask_supplies_textview);
         skillsTextView = (TextView) findViewById(R.id.trainTask_skills);
         webView = (WebView) findViewById(R.id.traintask_webview);
+    }
+
+    private void setToolbar() {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(R.string.app_name);
     }
 
     private void getIntents() {

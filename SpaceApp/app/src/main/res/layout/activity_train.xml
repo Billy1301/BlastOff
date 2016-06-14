@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     tools:context=".Train.TrainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/train_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></android.support.v7.widget.Toolbar>
 
     <TextView
         android:id="@+id/train_blurb_textView_id"
@@ -30,7 +31,8 @@
         android:layout_height="wrap_content"
         android:text="@string/training_text"
         android:gravity="center"
-        android:layout_margin="5dp"/>
+        android:layout_margin="5dp"
+        android:padding="8dp"/>
 
     <Button
         android:id="@+id/train_activity1_button_id"
