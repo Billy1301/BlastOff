@@ -3,6 +3,7 @@ package com.example.billy.spaceapp;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -55,12 +56,15 @@ public class CommunicateActivity extends AppCompatActivity {
     String[] russianStrings;
     //endregion string array
 
+    Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_communicate);
 
         setViews();
+        setToolbar();
         setImageArrays();
         setPhraseArrays();
         setOnClickListerners(english, englishStrings, englishpics);
@@ -91,6 +95,12 @@ public class CommunicateActivity extends AppCompatActivity {
         german = (Button) findViewById(R.id.german_button);
         japanese = (Button) findViewById(R.id.japanese_button);
         russian = (Button) findViewById(R.id.russian_button);
+        toolbar = (Toolbar) findViewById(R.id.communicate_toolbar);
+    }
+
+    private void setToolbar() {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(R.string.app_name);
     }
 
     private void setOnClickListerners(Button button, final String[] phrases, final int[] image) {
