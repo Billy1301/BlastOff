@@ -31,22 +31,22 @@ public class CommunicateActivity extends AppCompatActivity {
 
     private void setViews() {
         toolbar = (Toolbar) findViewById(R.id.communicate_toolbar);
+        viewPager = (ViewPager) findViewById(R.id.communicate_viewPager);
+        tabLayout = (TabLayout) findViewById(R.id.communicate_tabLayout);
     }
 
     private void setToolbar() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(R.string.app_name);
-        viewPager = (ViewPager) findViewById(R.id.communicate_viewPager);
-        tabLayout = (TabLayout) findViewById(R.id.communicate_tabLayout);
     }
 
     private void setTabLayout() {
         tabLayout.addTab(tabLayout.newTab().setText(R.string.english));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.french));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.german));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.spanish));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.russian));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.japanese));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.german));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.russian));
         tabLayout.setTabGravity(TabLayout.MODE_SCROLLABLE);
     }
 
