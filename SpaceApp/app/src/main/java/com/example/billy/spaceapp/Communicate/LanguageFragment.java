@@ -1,5 +1,6 @@
 package com.example.billy.spaceapp.Communicate;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -72,6 +73,8 @@ public class LanguageFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_language, container, false);
         languageTitle = (TextView) v.findViewById(R.id.communicate_title_textView);
         languageTitle.setText(language);
+        Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "scribble_box_font.ttf");
+        languageTitle.setTypeface(typeface);
         helloText = (TextView) v.findViewById(R.id.hello_textView);
         helloText.setText(hello);
         myNameIsText = (TextView) v.findViewById(R.id.myNameIs_textView);
