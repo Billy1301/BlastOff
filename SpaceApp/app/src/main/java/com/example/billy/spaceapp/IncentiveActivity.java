@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,6 +14,7 @@ public class IncentiveActivity extends AppCompatActivity {
 
     ImageView rocketship;
     TextView title;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,7 @@ public class IncentiveActivity extends AppCompatActivity {
         setContentView(R.layout.activity_incentive);
 
         setViews();
+        //setToolbar();
         makeRocketTakeOff();
     }
 
@@ -28,6 +31,11 @@ public class IncentiveActivity extends AppCompatActivity {
         title = (TextView) findViewById(R.id.incentive_textView);
         Typeface typeface = Typeface.createFromAsset(getAssets(), "scribble_box_font.ttf");
         title.setTypeface(typeface);
+    }
+
+    private void setToolbar() {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(R.string.app_name);
     }
 
     private void makeRocketTakeOff() {
