@@ -17,9 +17,6 @@ public class CreateActivity extends AppCompatActivity {
     private Button spaceSuitButton;
     private TextView titleTextView;
     SharedPreferences sharedPreferences;
-    CheckBox checkBox;
-    public static final String CREATE_BOOLEAN_CODE = "BOOLEAN CODE1";
-    boolean isChecked = false;
     public final static String TITLE_KEY = "TitleName";
     Intent intent;
     public static String rocket = "Rocket";
@@ -33,7 +30,6 @@ public class CreateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create);
 
         initializeViews();
-        setChecked();
         initializeButton();
         setFontText();
 
@@ -56,7 +52,6 @@ public class CreateActivity extends AppCompatActivity {
         spaceSuitButton = (Button) findViewById(R.id.create_activity3_button_id);
         titleTextView = (TextView) findViewById(R.id.create_activity_textView_id);
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        checkBox = (CheckBox)findViewById(R.id.create_checkbox);
         intent = new Intent(CreateActivity.this, CreateImageActivity.class);
 
     }
@@ -64,25 +59,12 @@ public class CreateActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean(CREATE_BOOLEAN_CODE, isChecked);
-        editor.commit();
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        isChecked = sharedPreferences.getBoolean(CREATE_BOOLEAN_CODE, isChecked);
-        checkBox.setChecked(isChecked);
-    }
-
-    private void setChecked() {
-        boolean checked = (checkBox.isChecked());
-        if (checked) {
-            isChecked = true;
-        } else {
-            isChecked = false;
-        }
     }
 
     public void setButtonClicker(Button button, final String title) {
