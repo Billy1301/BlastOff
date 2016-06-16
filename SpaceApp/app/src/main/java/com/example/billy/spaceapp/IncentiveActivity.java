@@ -1,27 +1,20 @@
 package com.example.billy.spaceapp;
 
-import android.content.SharedPreferences;
+import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ImageView;
-
-import com.example.billy.spaceapp.Learn.Fragment.PlanetFragment;
+import android.widget.TextView;
 
 public class IncentiveActivity extends AppCompatActivity {
 
-    ImageView createBadge;
-    ImageView trainBadge;
-    ImageView languageBadge;
-    ImageView learnBadge;
     ImageView rocketship;
-
-    SharedPreferences sharedPreferences;
-
-    Boolean create;
-    Boolean train;
-    Boolean language;
-    Boolean learn;
+    TextView title;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,43 +22,31 @@ public class IncentiveActivity extends AppCompatActivity {
         setContentView(R.layout.activity_incentive);
 
         setViews();
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        //getBooleans();
-        //booleansCheck();
-
+        //setToolbar();
+        makeRocketTakeOff();
     }
-
-
-
 
     private void setViews() {
-        createBadge = (ImageView) findViewById(R.id.create_badge);
-        trainBadge = (ImageView) findViewById(R.id.train_badge);
-        languageBadge = (ImageView) findViewById(R.id.languages_badge);
-        learnBadge = (ImageView) findViewById(R.id.learn_badge);
         rocketship = (ImageView) findViewById(R.id.rocketship);
+        title = (TextView) findViewById(R.id.incentive_textView);
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "scribble_box_font.ttf");
+        title.setTypeface(typeface);
     }
 
-    private void getBooleans() {
-        language = sharedPreferences.getBoolean(CommunicateActivity.COMMUNICATE_BOOLEAN_CODE, language);
-        learn = sharedPreferences.getBoolean(PlanetFragment.BOOLEAN_CODE, create);
+
+    private void setToolbar() {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(R.string.app_name);
     }
 
-    private void booleansCheck() {
-        if (create) {
-            createBadge.setImageResource(R.drawable.blastoff_logo);
-        }
-        if (train) {
-            trainBadge.setImageResource(R.drawable.blastoff_logo);
-        }
-        if (language) {
-            languageBadge.setImageResource(R.drawable.blastoff_logo);
-        }
-        if (learn) {
-            learnBadge.setImageResource(R.drawable.blastoff_logo);
-        }
-        if (train && create && language && learn) {
-            rocketship.animate().translationY(5000).setDuration(3000);
-        }
+    private void makeRocketTakeOff() {
+        rocketship.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Vibrator vibrator = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
+                vibrator.vibrate(1500);
+                rocketship.animate().translationY(-5000).setDuration(4000);
+            }
+        });
     }
 }

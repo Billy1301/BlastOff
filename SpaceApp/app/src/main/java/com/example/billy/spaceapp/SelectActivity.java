@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.billy.spaceapp.Communicate.CommunicateActivity;
 import com.example.billy.spaceapp.Learn.LearnActivity;
 import com.example.billy.spaceapp.Train.TrainActivity;
 
@@ -27,6 +28,7 @@ public class SelectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_select);
         initiateViews();
         setClickListeners();
+
     }
 
     private void initiateViews(){

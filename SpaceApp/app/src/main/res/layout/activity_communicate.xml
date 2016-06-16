@@ -1,283 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.example.billy.spaceapp.CommunicateActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Communicate.CommunicateActivity">
 
-    <LinearLayout
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/communicate_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:elevation="6dp"
+        android:minHeight="?attr/actionBarSize"
+        >
+    </android.support.v7.widget.Toolbar>
 
-        <TextView
-            android:id="@+id/communicate_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="22sp"
-            android:text="Astronaut Communication"
-            android:gravity="center_horizontal"
-            android:layout_margin="5dp"/>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/communicate_tabLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/communicate_toolbar"
+        android:background="@color/colorPrimary"
+        app:tabGravity="center"
+        app:tabMode="scrollable"
+        android:elevation="6dp"
+        android:minHeight="?attr/actionBarSize">
+    </android.support.design.widget.TabLayout>
 
-        <TextView
-            android:id="@+id/communicate_blurb_textView_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/languages_intro"
-            android:gravity="center_horizontal"/>
-
-        <ImageView
-            android:id="@+id/communication_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="30dp">
-
-            <TextView
-                android:id="@+id/communicate_text_hello_english"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hello"
-                android:layout_weight="1"/>
-
-            <TextView
-                android:id="@+id/communicate_text_hello"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hello"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/communicate_text_name_english"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/my_name_is"
-                android:layout_weight="1"/>
-
-            <TextView
-                android:id="@+id/communicate_text_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/my_name_is"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/communicate_text_astronaut_english"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/i_am_an_astronaut"
-                />
-
-            <TextView
-                android:id="@+id/communicate_text_astronaut"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/i_am_an_astronaut"
-                android:layout_marginLeft="10dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/communicate_text_country_english"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/country_are_you_from"
-                />
-
-            <TextView
-                android:id="@+id/communicate_text_country"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/country_are_you_from"
-                android:layout_marginLeft="10dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/communicate_text_goodbye_english"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/goodbye"
-                />
-
-            <TextView
-                android:id="@+id/communicate_text_goodbye"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/goodbye"
-                android:layout_marginLeft="10dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="10dp">
-
-            <ImageView
-                android:id="@+id/flag_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/esa"
-                android:layout_weight="1"/>
-
-            <ImageView
-                android:id="@+id/flag_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/russia_space"
-                android:layout_weight="1"/>
-
-            <ImageView
-                android:id="@+id/flag_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/nasa_logo"
-                android:layout_weight="1"/>
-
-            <ImageView
-                android:id="@+id/flag_4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/canada_space"
-                android:layout_weight="1"/>
-
-            <ImageView
-                android:id="@+id/flag_5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/japan_space"
-                android:layout_weight="1"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <CheckBox
-                android:id="@+id/checkbox_communicate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Communication Challenge Completed!"/>
-
-        </LinearLayout>
-
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:columnCount="2"
-            android:layout_above="@+id/gridLayout"
-            android:layout_alignParentStart="true">
-
-            <Button
-                android:id="@+id/english_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/english"
-                android:layout_column="0"
-                android:layout_columnWeight="1"/>
-
-            <Button
-                android:id="@+id/french_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/french"
-                android:layout_column="1"
-                android:layout_columnWeight="1"/>
-        </GridLayout>
-
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:columnCount="2"
-            android:layout_above="@+id/bottom_grid_language_buttons"
-            android:layout_alignParentStart="true"
-            android:id="@+id/gridLayout">
-
-            <Button
-                android:id="@+id/spanish_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/spanish"
-                android:layout_column="1"
-                android:layout_columnWeight="1"/>
-
-            <Button
-                android:id="@+id/japanese_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/japanese"
-                android:layout_column="0"
-                android:layout_columnWeight="1"/>
-        </GridLayout>
-
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:columnCount="2"
-            android:layout_alignParentBottom="true"
-            android:id="@+id/bottom_grid_language_buttons">
-
-            <Button
-                android:id="@+id/german_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/german"
-                android:layout_column="0"
-                android:layout_columnWeight="1"/>
-
-            <Button
-                android:id="@+id/russian_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/russian"
-                android:layout_column="1"
-                android:layout_columnWeight="1"/>
-        </GridLayout>
-
-    </LinearLayout>
-
-</ScrollView>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/communicate_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/communicate_tabLayout">
+    </android.support.v4.view.ViewPager>
+</RelativeLayout>

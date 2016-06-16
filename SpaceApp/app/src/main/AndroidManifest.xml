@@ -4,6 +4,7 @@
     package="com.example.billy.spaceapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-feature android:name="android.hardware.camera"
         android:required="true" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
@@ -15,22 +16,28 @@
         android:icon="@drawable/blastoff_logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        >
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppThemeActionBar">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".Train.TrainActivity" />
-        <activity android:name=".Learn.LearnActivity">
+        <activity android:name=".Learn.LearnActivity"
+            android:theme="@style/AppTheme">
         </activity>
         <activity android:name=".CreateActivity"
             android:theme="@style/AppThemeActionBar"/>
-        <activity android:name=".CommunicateActivity" />
+
+        <activity android:name=".Communicate.CommunicateActivity" />
+
+
         <activity android:name=".IncentiveActivity" />
-        <activity android:name=".SelectActivity" />
+        <activity android:name=".SelectActivity"
+            android:theme="@style/AppThemeActionBar"/>
+
         <activity android:name=".Train.TrainTaskActivity" />
 
         <activity android:name=".CreateImageActivity"
