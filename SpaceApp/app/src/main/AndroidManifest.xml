@@ -4,6 +4,7 @@
     package="com.example.billy.spaceapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-feature android:name="android.hardware.camera"
         android:required="true" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
@@ -27,7 +28,7 @@
         <activity android:name=".Learn.LearnActivity">
         </activity>
         <activity android:name=".CreateActivity" />
-        <activity android:name=".CommunicateActivity" />
+        <activity android:name=".Communicate.CommunicateActivity" />
         <activity android:name=".IncentiveActivity" />
         <activity android:name=".SelectActivity" />
 

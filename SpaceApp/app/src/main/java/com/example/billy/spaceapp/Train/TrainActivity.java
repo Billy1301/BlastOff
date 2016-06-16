@@ -1,6 +1,7 @@
 package com.example.billy.spaceapp.Train;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -80,8 +81,8 @@ public class TrainActivity extends AppCompatActivity {
         baseStationWalkBackButton = (Button) findViewById(R.id.train_activity2_button_id);
         missionControlButton = (Button) findViewById(R.id.train_activity3_button_id);
         titleText = (TextView) findViewById(R.id.train_blurb_textView_id);
-//        Typeface typeface = Typeface.createFromAsset(getAssets(), "scribble_box_font.ttf");
-//        titleText.setTypeface(typeface);
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "scribble_box_font.ttf");
+        titleText.setTypeface(typeface);
     }
 
     private void setToolbar() {
