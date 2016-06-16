@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
 import com.example.billy.spaceapp.Learn.Fragment.PlanetFragment;
-import com.example.billy.spaceapp.Train.TrainActivity;
 
 public class IncentiveActivity extends AppCompatActivity {
 
@@ -48,6 +47,7 @@ public class IncentiveActivity extends AppCompatActivity {
     }
 
     private void getBooleans() {
+        language = sharedPreferences.getBoolean(CommunicateActivity.COMMUNICATE_BOOLEAN_CODE, language);
         learn = sharedPreferences.getBoolean(PlanetFragment.BOOLEAN_CODE, create);
     }
 
