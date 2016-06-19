@@ -33,17 +33,12 @@ public class CreateHintActivity extends AppCompatActivity {
         if (titleTextView.getText().equals(getString(R.string.helmet_hint_titleName))){
             nameTextView.setText(getString(R.string.helmet_instructions));
             hintImage.setImageResource(R.drawable.helmet_hint);
-
         }
         if (titleTextView.getText().equals(getString(R.string.spaceSuit_hint_titleName))){
             nameTextView.setText(getString(R.string.space_suit_instructions));
             hintImage.setImageResource(R.drawable.space_suit_hint);
         }
-
-
     }
-
-
 
     private void setFontText() {
         Typeface gotFont = Typeface.createFromAsset(getAssets(), "scribble_box_font.ttf");

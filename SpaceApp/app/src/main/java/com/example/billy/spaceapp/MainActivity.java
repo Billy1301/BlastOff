@@ -1,5 +1,6 @@
 package com.example.billy.spaceapp;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +15,8 @@ import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
@@ -45,14 +48,14 @@ public class MainActivity extends AppCompatActivity {
     public static final String IMAGE_CODE = "IMAGE CODE";
     Context context;
     String base64Image;
-    File selfiePhoto;
+//    File photoFile;
 
     private final static String CAPTURED_PHOTO_PATH_KEY = "mCurrentPhotoPath";
     private final static String CAPTURED_PHOTO_URI_KEY = "mCapturedImageURI";
 
     // Required for camera operations in order to save the image file on resume.
     private String mCurrentPhotoPath = null;
-    private Uri mCapturedImageURI = null;
+    Uri mCapturedImageURI;
 
 
     @Override
@@ -63,7 +66,12 @@ public class MainActivity extends AppCompatActivity {
         instantiateViews();
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         setLaunchButton();
-        setCamera();
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            //setCamera();
+            ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE }, 0);
+        }
+
     }
 
     private void instantiateViews() {
@@ -74,8 +82,20 @@ public class MainActivity extends AppCompatActivity {
         context = MainActivity.this;
         Typeface typeface = Typeface.createFromAsset(getAssets(), "scribble_box_font.ttf");
         title.setTypeface(typeface);
-        userImage = null;
+//        userImage = null;
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (requestCode == 0) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
+                    && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                setCamera();
+
+            }
+        }
+    }
+
 
     private void setLaunchButton() {
         launchButton.setOnClickListener(new View.OnClickListener() {
@@ -91,33 +111,31 @@ public class MainActivity extends AppCompatActivity {
         coordinatorLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PackageManager packageManager = context.getPackageManager();
-                if(packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA) == false){
-                    Toast.makeText(MainActivity.this, "This device does not have a camera.", Toast.LENGTH_SHORT)
-                            .show();
-                    return;
-                }
-                if (userImage == null) {
-                    takePhoto();
-
-                } else {
-                    userImage.setImageURI(mCapturedImageURI);
-
-                }
+                takePhoto();
             }
         });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 100) {
+            if (resultCode == RESULT_OK) {
+                userImage.setImageURI(mCapturedImageURI);
 
-        if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
-            photo = (Bitmap) data.getExtras().get("Pic.jpg");
-
-            //userImage.setImageURI(mCapturedImageURI);
-            storeToSharedPreferences();
-
+            }
         }
+
+
+//        if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
+//            //userImage.setImageBitmap(null);
+//            photo = (Bitmap) data.getExtras().get("data");
+//            userImage.setImageBitmap(photo);
+//            userImage.setScaleX(4.5f);
+//            userImage.setScaleY(3.5f);
+//            //userImage.setImageURI(mCapturedImageURI);
+//            //storeToSharedPreferences();
+//
+//        }
     }
 
     @Override
@@ -132,25 +150,42 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        String previouslyEncodedImage = sharedPreferences.getString(IMAGE_CODE, "");
-
-        if( !previouslyEncodedImage.equalsIgnoreCase("") ){
-            byte[] b = Base64.decode(previouslyEncodedImage, Base64.DEFAULT);
-            photo = BitmapFactory.decodeByteArray(b, 0, b.length);
-            userImage.setImageBitmap(photo);
-        }
+//        String previouslyEncodedImage = sharedPreferences.getString(IMAGE_CODE, "");
+//        if( !previouslyEncodedImage.equalsIgnoreCase("") ){
+//            byte[] b = Base64.decode(previouslyEncodedImage, Base64.DEFAULT);
+//            photo = BitmapFactory.decodeByteArray(b, 0, b.length);
+//            userImage.setImageBitmap(photo);
+//        }
     }
 
-    /**
-     * Goes to the phone camera using an intent
-     * Goes to onActivityforResult with photo
-     */
     public void takePhoto() {
+
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        selfiePhoto = new File(Environment.getExternalStorageDirectory(),  "Pic.jpg");
-        mCapturedImageURI = Uri.fromFile(selfiePhoto);
+        mCapturedImageURI = Uri.fromFile(getOutputMediaFile());
         intent.putExtra(MediaStore.EXTRA_OUTPUT, mCapturedImageURI);
-        startActivityForResult(intent, REQUEST_TAKE_PHOTO);
+        startActivityForResult(intent, 100);
+
+        //Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        //selfiePhoto = new File(Environment.getExternalStorageDirectory(),  "Pic.jpg");
+        //mCapturedImageURI = Uri.fromFile(selfiePhoto);
+        //intent.putExtra(MediaStore.EXTRA_OUTPUT, photo);
+        //startActivityForResult(intent, REQUEST_TAKE_PHOTO);
+    }
+
+    private static File getOutputMediaFile(){
+        File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES), "BlastOff");
+
+        if (!mediaStorageDir.exists()){
+            if (!mediaStorageDir.mkdirs()){
+                Log.d("MainCamera", "failed to create directory");
+                return null;
+            }
+        }
+
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        return new File(mediaStorageDir.getPath() + File.separator +
+                "IMG_"+ timeStamp + ".jpg");
     }
 
     private void storeToSharedPreferences() {
@@ -165,17 +200,14 @@ public class MainActivity extends AppCompatActivity {
         byte[] bytes = baos.toByteArray();
         base64Image = Base64.encodeToString(bytes, Base64.DEFAULT);
 
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(IMAGE_CODE, base64Image);
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
+//        editor.putString(IMAGE_CODE, base64Image);
 
         userImage.setImageURI(mCapturedImageURI);
         Log.i("Main","Stored image with length: " + bytes.length);
     }
 
     /**
-     * Converts a immutable bitmap to a mutable bitmap. This operation doesn't allocates
-     * more memory that there is already allocated.
-     *
      * @param imgIn - Source image. It will be released, and should not be used more
      * @return a copy of imgIn, but muttable.
      */

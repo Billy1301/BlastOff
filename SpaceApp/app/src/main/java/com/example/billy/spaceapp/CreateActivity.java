@@ -28,7 +28,6 @@ public class CreateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
-
         initializeViews();
         initializeButton();
         setFontText();
@@ -45,7 +44,6 @@ public class CreateActivity extends AppCompatActivity {
         setButtonClicker(spaceSuitButton, spaceSuit);
     }
 
-
     private void initializeViews(){
         rocketButton = (Button) findViewById(R.id.create_activity1_button_id);
         helmetButton = (Button) findViewById(R.id.create_activity2_button_id);
@@ -53,7 +51,6 @@ public class CreateActivity extends AppCompatActivity {
         titleTextView = (TextView) findViewById(R.id.create_activity_textView_id);
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         intent = new Intent(CreateActivity.this, CreateImageActivity.class);
-
     }
 
     @Override
