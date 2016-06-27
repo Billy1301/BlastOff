@@ -14,7 +14,7 @@ A app that educate kids about how to be an Astronauts, teach kids about solar sy
 
 <br><a href="https://docs.google.com/presentation/d/1u23ECoAjBnLyhkRRIxF57c7oYCsD7VAoTtbcBI3TQ-c/edit?usp=sharing"> Blast Off project planning</a>
 
-<p>Created by: Bill Ly, Cher Flores, Blake Polidore, Bryan Juteau</p>
+<p>Created by: Bill Ly, <a href="https://github.com/cherence">Cherence Flores</a>, <a href="https://github.com/blakepolidore">Blake Polidore</a>, Bryan Juteau</p>
 
 </body>
 </html>
