@@ -28,6 +28,7 @@ public class SelectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_select);
         initiateViews();
         setClickListeners();
+
     }
 
     private void initiateViews(){

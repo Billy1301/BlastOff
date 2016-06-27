@@ -33,6 +33,7 @@ public class IncentiveActivity extends AppCompatActivity {
         title.setTypeface(typeface);
     }
 
+
     private void setToolbar() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(R.string.app_name);

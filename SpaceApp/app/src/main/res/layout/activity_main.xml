@@ -7,8 +7,13 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context="com.example.billy.spaceapp.MainActivity"
-    android:background="@drawable/mainhelmet"
     android:id="@+id/frame_layout_main">
+
+    <ImageView
+        android:background="@drawable/mainhelmet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 
     <TextView
         android:id="@+id/main_title_text"
@@ -17,9 +22,9 @@
         android:text="Welcome Astronaut!"
         android:textStyle="bold"
         android:textColor="@color/colorPrimary"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:gravity="center_horizontal"
-        android:layout_margin="4dp"/>
+        android:paddingTop="16dp"/>
 
     <Button
         android:id="@+id/main_launch_button_id"
