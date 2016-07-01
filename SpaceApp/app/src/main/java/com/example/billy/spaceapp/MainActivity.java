@@ -65,12 +65,17 @@ public class MainActivity extends AppCompatActivity {
 
         instantiateViews();
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        if (sharedPreferences!=null)getSavedImage();
         setLaunchButton();
+        setCamera();
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            //setCamera();
-            ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE }, 0);
-        }
+
+
+//        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+//            //takePhoto();
+//            ActivityCompat.requestPermissions(MainActivity.this, new String[] { Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE }, 0);
+//        }
+
 
     }
 
@@ -85,16 +90,15 @@ public class MainActivity extends AppCompatActivity {
 //        userImage = null;
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        if (requestCode == 0) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
-                    && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-                setCamera();
-
-            }
-        }
-    }
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+//        if (requestCode == 0) {
+//            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
+//                    && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+//                setCamera();
+//            }
+//        }
+//    }
 
 
     private void setLaunchButton() {
@@ -111,19 +115,22 @@ public class MainActivity extends AppCompatActivity {
         coordinatorLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                takePhoto();
+            takePhoto();
             }
         });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 100) {
-            if (resultCode == RESULT_OK) {
+//        if (requestCode == 100) {
+//            if (resultCode == RESULT_OK) {
                 userImage.setImageURI(mCapturedImageURI);
+                userImage.setScaleX(4.5f);
+                userImage.setScaleY(3.5f);
+                storeToSharedPreferences();
 
-            }
-        }
+//            }
+//        }
 
 
 //        if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
@@ -133,7 +140,6 @@ public class MainActivity extends AppCompatActivity {
 //            userImage.setScaleX(4.5f);
 //            userImage.setScaleY(3.5f);
 //            //userImage.setImageURI(mCapturedImageURI);
-//            //storeToSharedPreferences();
 //
 //        }
     }
@@ -142,21 +148,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
 
-//        SharedPreferences.Editor editor = sharedPreferences.edit();
-//        editor.putString(IMAGE_CODE, "");
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-//        String previouslyEncodedImage = sharedPreferences.getString(IMAGE_CODE, "");
-//        if( !previouslyEncodedImage.equalsIgnoreCase("") ){
-//            byte[] b = Base64.decode(previouslyEncodedImage, Base64.DEFAULT);
-//            photo = BitmapFactory.decodeByteArray(b, 0, b.length);
-//            userImage.setImageBitmap(photo);
-//        }
     }
+
+    private void getSavedImage(){
+        String previouslyEncodedImage = sharedPreferences.getString(IMAGE_CODE, "");
+        if( !previouslyEncodedImage.equalsIgnoreCase("") ){
+            byte[] b = Base64.decode(previouslyEncodedImage.getBytes(), Base64.DEFAULT);
+            Log.i("SAVEDIMAGE", "getSavedImage: "+previouslyEncodedImage);
+            photo = BitmapFactory.decodeByteArray(b, 0, b.length);
+            userImage.setImageBitmap(photo);
+//            userImage.setImageURI(mCapturedImageURI);
+        }
+
+    }
+
 
     public void takePhoto() {
 
@@ -200,16 +210,18 @@ public class MainActivity extends AppCompatActivity {
         byte[] bytes = baos.toByteArray();
         base64Image = Base64.encodeToString(bytes, Base64.DEFAULT);
 
-//        SharedPreferences.Editor editor = sharedPreferences.edit();
-//        editor.putString(IMAGE_CODE, base64Image);
-
-        userImage.setImageURI(mCapturedImageURI);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(IMAGE_CODE, base64Image);
+        editor.commit();
+        Log.i("STORE SAVED PREF", "storeToSharedPreferences: " + base64Image);
+       // userImage.setImageURI(mCapturedImageURI);
         Log.i("Main","Stored image with length: " + bytes.length);
     }
 
     /**
-     * @param imgIn - Source image. It will be released, and should not be used more
-     * @return a copy of imgIn, but muttable.
+     * this is to convert to larger scale
+     * @param imgIn
+     * @return
      */
     public static Bitmap convertToMutable(Bitmap imgIn) {
         try {
