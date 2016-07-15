@@ -21,7 +21,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textAlignment="center"
         android:layout_marginBottom="10dp"
-        android:textSize="30dp"
+        android:textSize="25dp"
         />
 
     <ImageView
@@ -38,25 +38,24 @@
         <Button
             android:id="@+id/select_train_button_id"
             android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_height="70dp"
             android:text="train"
-            android:background="@drawable/dumbbell48"
+            android:background="@drawable/train_icon"
             android:layout_weight="1"/>
 
         <Button
             android:id="@+id/select_learn_button_id"
             android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_height="70dp"
             android:text="learn"
-            android:background="@drawable/physics48"
+            android:background="@drawable/learn_icon"
             android:layout_weight="1"/>
 
         <Button
             android:id="@+id/select_create_button_id"
             android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:text="create"
-            android:background="@drawable/astronaut_48"
+            android:layout_height="70dp"
+            android:background="@drawable/create_icon"
             android:layout_weight="1"/>
 
     </LinearLayout>
@@ -69,7 +68,7 @@
         <Button
             android:id="@+id/select_communicate_button_id"
             android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_height="70dp"
             android:text="communicate"
             android:background="@drawable/globe_48"
             android:layout_weight="1" />
@@ -78,9 +77,9 @@
         <Button
             android:id="@+id/select_incentive_button_id"
             android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_height="70dp"
             android:text="incentive"
-            android:background="@drawable/rocket48"
+            android:background="@drawable/incentive_icon"
             android:layout_weight="1"/>
 
     </LinearLayout>

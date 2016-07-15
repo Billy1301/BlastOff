@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Lets learn and create, Astronaut!"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textColor="@color/colorPrimary"
         android:textAlignment="center"
         />
@@ -24,12 +24,12 @@
     <Button
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
-        android:background="@drawable/blastoff_logo"
+        android:background="@drawable/incentive_icon"
         android:id="@+id/create_activity1_button_id"
-        android:layout_width="125dp"
+        android:layout_width="115dp"
         android:layout_height="125dp"
-        android:text="Rocket"
         />
+
 
     <LinearLayout
         android:layout_marginTop="15dp"
@@ -43,16 +43,14 @@
             android:id="@+id/create_activity2_button_id"
             android:layout_width="125dp"
             android:layout_height="125dp"
-            android:text="Helmet"
             />
 
         <Button
-            android:background="@drawable/space_suit_hint"
+            android:background="@drawable/final_create_spacesuit"
             android:layout_marginLeft="70dp"
             android:id="@+id/create_activity3_button_id"
             android:layout_width="125dp"
             android:layout_height="125dp"
-            android:text="Space Suit"
             />
 
     </LinearLayout>
