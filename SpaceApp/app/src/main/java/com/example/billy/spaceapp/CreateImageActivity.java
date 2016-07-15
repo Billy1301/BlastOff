@@ -70,13 +70,13 @@ public class CreateImageActivity extends AppCompatActivity {
         projectTitle.setText(titleExtra);
 
         if (projectTitle.getText().equals(CreateActivity.rocket)){
-            projectImage.setImageResource(R.drawable.create_rocket);
+            projectImage.setImageResource(R.drawable.final_rocket);
         }
         if (projectTitle.getText().equals(CreateActivity.helmet)){
             projectImage.setImageResource(R.drawable.create_helmet);
         }
         if (projectTitle.getText().equals(CreateActivity.spaceSuit)){
-            projectImage.setImageResource(R.drawable.space_suit_hint);
+            projectImage.setImageResource(R.drawable.final_create_spacesuit);
         }
 
     }
